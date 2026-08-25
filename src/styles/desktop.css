@@ -1,0 +1,346 @@
+/* ---- Desktop shell ------------------------------------------------------
+   The wallpaper is pixel art with its own composition, and the icons have to
+   land in specific gaps in that artwork. A plain background-size:cover would
+   let those gaps slide around as the viewport aspect changes, so the wallpaper
+   lives on a fixed 16:9 "stage" that covers the viewport, and icons are placed
+   in percentages of the stage — they then track the art exactly. */
+
+.desktop {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  background: #000;
+}
+
+.desktop-stage {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: max(100vw, calc(100vh * 16 / 9));
+  height: max(100vh, calc(100vw * 9 / 16));
+  background-image: url('/assets/img/base.gif');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  image-rendering: pixelated;
+}
+
+/* The 16:9-locked stage only exists to keep the DESKTOP wallpaper's painted
+   icon/window art aligned across desktop aspect ratios. The mobile wallpaper
+   has no such fixed art to align, it's a plain scenic background, so forcing
+   it through that same oversized-16:9-stage math was actively wrong: it
+   stretched a native portrait (750x1350) image to fill a landscape box, and
+   every icon/taskbar percentage ended up relative to that oversized stage
+   instead of the screen actually visible, which is what made "centred"
+   nowhere near centred. On mobile the stage just IS the viewport instead,
+   full stop, and the wallpaper covers it at its own aspect ratio — no
+   stretch, no oversizing, no scroll-to-find-it, and every percentage below
+   now means what it looks like it means. */
+@media (max-width: 900px) {
+  .desktop-stage {
+    top: 0;
+    left: 0;
+    transform: none;
+    width: 100vw;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    /* Placed after the base rule's own background-image so source order,
+       not just the media query, is what makes this win. */
+    background-image: url('/assets/img/mobile-wallpaper.gif');
+  }
+}
+
+/* Sampled directly from public/assets/img/base.gif at (10,10): a flat,
+   uniform fill with no gradient or texture in this corner, so a plain
+   rectangle in the same colour is invisible against it. Bounds measured the
+   same way — this patch runs from the top-left corner down to just above
+   where the painted "FIJI" window begins (~55.6% height) and just past the
+   painted icon column's right edge (~13.5% width). */
+.desktop-icon-mask {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 13.54%;
+  height: 55.56%;
+  background: #0089da;
+}
+
+/* The mobile wallpaper (see the media query near the top of this file) is a
+   different scene entirely, a dark nebula/grid background, not the desktop
+   art this mask's colour was sampled from, so on mobile it would show up as
+   a mismatched flat-blue patch rather than blending in. Nothing there needs
+   covering on that image in the first place. */
+@media (max-width: 900px) {
+  .desktop-icon-mask {
+    display: none;
+  }
+}
+
+.desktop-icon {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 7px 9px;
+  background: transparent;
+  border: 1px solid transparent;
+  cursor: pointer;
+  width: 112px;
+}
+
+/* Same 2x2-plus-one layout as desktop (see the icons array in Home.tsx), just
+   centred as a block and sitting in the upper-middle rather than pinned to
+   the top-left corner. Percentages are now genuinely relative to the visible
+   screen (the stage IS the viewport on mobile, see above), not an oversized
+   stage most of which was never on screen — so 50% here actually means the
+   horizontal centre this time. left/top are inline styles per icon, so this
+   needs both !important and the [data-icon-id] hook to override one at a
+   time instead of just re-centring .desktop-icon as a class. */
+@media (max-width: 900px) {
+  .desktop-icon[data-icon-id='tutorial']  { left: 35% !important; top: 30% !important; }
+  .desktop-icon[data-icon-id='library']   { left: 65% !important; top: 30% !important; }
+  .desktop-icon[data-icon-id='resume']    { left: 35% !important; top: 42% !important; }
+  .desktop-icon[data-icon-id='music']     { left: 65% !important; top: 42% !important; }
+  .desktop-icon[data-icon-id='portfolio'] { left: 50% !important; top: 54% !important; }
+}
+
+.desktop-icon:hover {
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px dotted rgba(255, 255, 255, 0.75);
+}
+
+.desktop-icon-img {
+  /* Source art is 32px; 48 keeps it comfortably clickable, and `pixelated`
+     stops the browser smoothing the pixel art into mush when it scales up. */
+  width: 48px;
+  height: 48px;
+  image-rendering: pixelated;
+  display: block;
+}
+
+.desktop-icon-label {
+  font-family: 'Tahoma', 'Verdana', sans-serif;
+  font-size: 0.8rem;
+  color: #ffffff;
+  text-align: center;
+  line-height: 1.2;
+  /* Hard pixel-style shadow so the label survives any wallpaper colour. */
+  text-shadow: 1px 1px 0 #1a1a3a, -1px 1px 0 #1a1a3a, 1px -1px 0 #1a1a3a, -1px -1px 0 #1a1a3a;
+  word-break: break-word;
+}
+
+/* ---- Taskbar --------------------------------------------------------
+   Replaces the wallpaper's own painted taskbar (button graphics, not a flat
+   fill, so it couldn't just be colour-matched and covered like the icon
+   corner) with real chrome: the same pastel title-bar gradient every window
+   uses, a thin animated rainbow strip along the top edge, a few decorative
+   "open program" tabs standing in for the painted originals, and the reset
+   button folded in where a real taskbar's tray would sit. Bounds measured
+   off the artwork: the painted bar starts at ~93.3% height. */
+.desktop-taskbar {
+  position: absolute;
+  left: 0;
+  top: 93.3%;
+  width: 100%;
+  height: 6.7%;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  /* Centring the whole cluster (badge + tabs + reset), rather than pinning
+     the badge and reset to the outer edges with the tabs stretched between
+     them, is what actually keeps content off the edges on wide stages — the
+     old flex:1 on the tabs pinned the other two to the edges by construction,
+     no matter how much side padding there was. Percentage padding underneath
+     is just a guaranteed floor for whichever proportions still run tight. */
+  justify-content: center;
+  gap: 14px;
+  padding: 0 4%;
+  background: linear-gradient(90deg, #a5d8f0 0%, #c3bce9 52%, #f2c0dc 100%);
+  border-top: 2px solid #f2ecff;
+}
+
+/* Centring the cluster means centring it across the stage's full oversized
+   width, which on the top-left-anchored mobile stage (see the media query
+   near the top of this file) lands the whole thing hundreds of pixels past
+   the right edge of the actual viewport — invisible without scrolling past
+   it first, the exact bug that stage anchor exists to avoid. Left-align
+   here instead, so the badge, tabs and reset all sit right where the icon
+   corner already is. Placed after the base rule on purpose: same specificity,
+   so source order is what decides the winner, not the media query alone. */
+@media (max-width: 900px) {
+  .desktop-taskbar {
+    justify-content: flex-start;
+    /* % here would still mean % of the taskbar's own (stage) width, same
+       problem as centring — vw is relative to the actual viewport instead.
+       With the reset button hidden below, the badge + 3 tabs run about
+       300px wide; 10vw of a ~375px phone leaves roughly even space on both
+       sides, so the whole cluster reads as centred in the first view a
+       visitor actually sees, without needing to scroll for any of it. */
+    padding-left: 10vw;
+    /* The mobile wallpaper's own dominant colour is the neon-magenta grid
+       horizon (see mobile-wallpaper.gif), so the baby-blue bar that matches
+       the desktop wallpaper's palette clashes here — magenta ties the bar
+       back into the art actually behind it on this version. */
+    background: linear-gradient(90deg, #ff6fc4 0%, #ff1aae 52%, #c2117a 100%);
+  }
+}
+
+.desktop-taskbar-rainbow {
+  position: absolute;
+  top: -3px;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #ff5f9e, #ff9f45, #ffe34f, #6ee7a8, #58d3f7, #a78bfa, #ff5f9e);
+  background-size: 200% 100%;
+  animation: rainbow-shift 6s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .desktop-taskbar-rainbow {
+    animation: none;
+  }
+}
+
+/* A circular "Start" badge, pixel-art Windows flag, standing in for a real
+   start button the same way the tabs stand in for real minimized windows. */
+.desktop-taskbar-start {
+  flex-shrink: 0;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f2ecff;
+  border: 2px solid #6a4a8a;
+}
+
+.desktop-taskbar-start-flag {
+  width: 13px;
+  height: 13px;
+  shape-rendering: crispEdges;
+}
+
+.desktop-taskbar-tabs {
+  /* Sized to content, not stretched — flex:1 here is what used to push the
+     badge and reset button apart to the bar's outer edges. */
+  flex: 0 1 auto;
+  min-width: 0;
+  height: 68%;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  overflow: hidden;
+}
+
+/* Pill instead of the bevel-box every other button uses — a dark cyan border
+   on a pink fill, plus a always-slightly-on chromatic split that occasionally
+   jumps further for a beat, a "leggero effetto glitch" rather than a full
+   constant flicker. */
+.desktop-taskbar-tab {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding: 0 12px;
+  border-radius: 999px;
+  background: #ffa8dc;
+  border: 2px solid #0b7d8f;
+  color: #2f2450;
+  font-family: 'Tahoma', 'Verdana', sans-serif;
+  font-size: clamp(0.6rem, 0.85vw, 0.8rem);
+  font-weight: 700;
+  white-space: nowrap;
+  animation: taskbar-tab-glitch 5s infinite;
+}
+
+.desktop-taskbar-tab:nth-child(2) {
+  animation-delay: 1.4s;
+}
+
+.desktop-taskbar-tab:nth-child(3) {
+  animation-delay: 2.8s;
+}
+
+@keyframes taskbar-tab-glitch {
+  0%, 90%, 100% {
+    text-shadow: 1px 0 0 rgba(0, 229, 255, 0.7), -1px 0 0 rgba(255, 42, 214, 0.7);
+  }
+  92% {
+    text-shadow: 2px 0 0 rgba(0, 229, 255, 0.9), -2px 0 0 rgba(255, 42, 214, 0.9);
+  }
+  94% {
+    text-shadow: -2px 0 0 rgba(0, 229, 255, 0.9), 2px 0 0 rgba(255, 42, 214, 0.9);
+  }
+  96% {
+    text-shadow: 1px 0 0 rgba(0, 229, 255, 0.7), -1px 0 0 rgba(255, 42, 214, 0.7);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .desktop-taskbar-tab {
+    animation: none;
+    text-shadow: 1px 0 0 rgba(0, 229, 255, 0.7), -1px 0 0 rgba(255, 42, 214, 0.7);
+  }
+}
+
+.desktop-reset {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 68%;
+  padding: 0 14px;
+  background: #e6dcf2;
+  color: #2f2450;
+  font-family: 'Tahoma', 'Verdana', sans-serif;
+  font-size: clamp(0.6rem, 0.9vw, 0.85rem);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+}
+
+.desktop-reset:hover {
+  background: #f2eaf9;
+}
+
+.desktop-reset:active {
+  border-top: 2px solid #16101f;
+  border-left: 2px solid #16101f;
+  border-right: 2px solid #cabcdb;
+  border-bottom: 2px solid #cabcdb;
+}
+
+/* Reaching it required a deliberate scroll past the tabs even before this,
+   and returning to the title screen matters less on mobile in the first
+   place — simplest to just not show it rather than fix its cut-off position. */
+@media (max-width: 900px) {
+  .desktop-reset {
+    display: none;
+  }
+}
+
+/* ---- Boot flash ---------------------------------------------------------
+   The intro ends blown out to white; the desktop then fades UP from white so
+   the two halves read as one continuous blink rather than a hard cut. */
+.boot-flash {
+  position: fixed;
+  inset: 0;
+  background: #fff;
+  pointer-events: none;
+  z-index: 999;
+  animation: boot-fade 0.9s ease-out forwards;
+}
+
+@keyframes boot-fade {
+  from { opacity: 1; }
+  to   { opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .boot-flash { animation-duration: 0.3s; }
+}

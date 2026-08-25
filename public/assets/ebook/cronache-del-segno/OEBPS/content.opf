@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<package version="3.0" xmlns="http://www.idpf.org/2007/opf" unique-identifier="bookid" xml:lang="it-IT" prefix="rendition: http://www.idpf.org/vocab/rendition/# ibooks: http://vocabulary.itunes.apple.com/rdf/ibooks/vocabulary-extensions-1.0/">
+	<metadata xmlns:dc="http://purl.org/dc/elements/1.1/">
+		<meta name="generator" content="Adobe InDesign 20.4" />
+		<meta name="cover" content="x1.png" />
+		<meta property="ibooks:specified-fonts">true</meta>
+		<dc:title>Ruffini EPUB2</dc:title>
+		<dc:date>2025-07-20T09:59:25Z</dc:date>
+		<dc:language>it-IT</dc:language>
+		<meta property="dcterms:modified">2025-07-20T09:59:25Z</meta>
+		<dc:identifier id="bookid">urn:uuid:20a3a5a7-fbc7-4735-975e-08cffd931c14</dc:identifier>
+		<!--fixed-layout options-->
+		<meta property="rendition:layout">pre-paginated</meta>
+		<meta property="rendition:orientation">portrait</meta>
+		<meta property="rendition:spread">none</meta>
+		<!--accessibility options-->
+	</metadata>
+	<manifest>
+		<item id="Ruffini_EPUB1-1" href="Ruffini_EPUB1-1.xhtml" media-type="application/xhtml+xml" />
+		<item id="Ruffini_EPUB1-2" href="Ruffini_EPUB1-2.xhtml" media-type="application/xhtml+xml" />
+		<item id="Ruffini_EPUB1-3" href="Ruffini_EPUB1-3.xhtml" media-type="application/xhtml+xml" />
+		<item id="Ruffini_EPUB1-4" href="Ruffini_EPUB1-4.xhtml" media-type="application/xhtml+xml" />
+		<item id="Ruffini_EPUB1-5" href="Ruffini_EPUB1-5.xhtml" media-type="application/xhtml+xml" />
+		<item id="Ruffini_EPUB1-6" href="Ruffini_EPUB1-6.xhtml" media-type="application/xhtml+xml" properties="scripted" />
+		<item id="Ruffini_EPUB1-7" href="Ruffini_EPUB1-7.xhtml" media-type="application/xhtml+xml" />
+		<item id="Ruffini_EPUB1-8" href="Ruffini_EPUB1-8.xhtml" media-type="application/xhtml+xml" />
+		<item id="Ruffini_EPUB1-9" href="Ruffini_EPUB1-9.xhtml" media-type="application/xhtml+xml" />
+		<item id="Ruffini_EPUB1-10" href="Ruffini_EPUB1-10.xhtml" media-type="application/xhtml+xml" />
+		<item id="Ruffini_EPUB1-11" href="Ruffini_EPUB1-11.xhtml" media-type="application/xhtml+xml" />
+		<item id="Ruffini_EPUB1-12" href="Ruffini_EPUB1-12.xhtml" media-type="application/xhtml+xml" properties="scripted" />
+		<item id="Ruffini_EPUB1-13" href="Ruffini_EPUB1-13.xhtml" media-type="application/xhtml+xml" properties="scripted" />
+		<item id="Ruffini_EPUB1-14" href="Ruffini_EPUB1-14.xhtml" media-type="application/xhtml+xml" />
+		<item id="Ruffini_EPUB1-15" href="Ruffini_EPUB1-15.xhtml" media-type="application/xhtml+xml" />
+		<item id="Ruffini_EPUB1-16" href="Ruffini_EPUB1-16.xhtml" media-type="application/xhtml+xml" />
+		<item id="Ruffini_EPUB1-17" href="Ruffini_EPUB1-17.xhtml" media-type="application/xhtml+xml" />
+		<item id="Ruffini_EPUB1-18" href="Ruffini_EPUB1-18.xhtml" media-type="application/xhtml+xml" />
+		<item id="Ruffini_EPUB1-19" href="Ruffini_EPUB1-19.xhtml" media-type="application/xhtml+xml" properties="scripted" />
+		<item id="Ruffini_EPUB1-20" href="Ruffini_EPUB1-20.xhtml" media-type="application/xhtml+xml" properties="scripted" />
+		<item id="Ruffini_EPUB1-21" href="Ruffini_EPUB1-21.xhtml" media-type="application/xhtml+xml" properties="scripted" />
+		<item id="Ruffini_EPUB1-22" href="Ruffini_EPUB1-22.xhtml" media-type="application/xhtml+xml" />
+		<item id="Ruffini_EPUB1-23" href="Ruffini_EPUB1-23.xhtml" media-type="application/xhtml+xml" />
+		<item id="Ruffini_EPUB1-24" href="Ruffini_EPUB1-24.xhtml" media-type="application/xhtml+xml" properties="scripted" />
+		<item id="Ruffini_EPUB1-25" href="Ruffini_EPUB1-25.xhtml" media-type="application/xhtml+xml" properties="scripted" />
+		<item id="Ruffini_EPUB1-26" href="Ruffini_EPUB1-26.xhtml" media-type="application/xhtml+xml" />
+		<item id="Ruffini_EPUB1-27" href="Ruffini_EPUB1-27.xhtml" media-type="application/xhtml+xml" />
+		<item id="Ruffini_EPUB1-28" href="Ruffini_EPUB1-28.xhtml" media-type="application/xhtml+xml" />
+		<item id="Ruffini_EPUB1-29" href="Ruffini_EPUB1-29.xhtml" media-type="application/xhtml+xml" />
+		<item id="Ruffini_EPUB1-30" href="Ruffini_EPUB1-30.xhtml" media-type="application/xhtml+xml" />
+		<item id="Ruffini_EPUB1-31" href="Ruffini_EPUB1-31.xhtml" media-type="application/xhtml+xml" />
+		<item id="Ruffini_EPUB1-32" href="Ruffini_EPUB1-32.xhtml" media-type="application/xhtml+xml" />
+		<item id="Ruffini_EPUB1-33" href="Ruffini_EPUB1-33.xhtml" media-type="application/xhtml+xml" />
+		<item id="Ruffini_EPUB1-34" href="Ruffini_EPUB1-34.xhtml" media-type="application/xhtml+xml" />
+		<item id="Ruffini_EPUB1-35" href="Ruffini_EPUB1-35.xhtml" media-type="application/xhtml+xml" />
+		<item id="Ruffini_EPUB1-36" href="Ruffini_EPUB1-36.xhtml" media-type="application/xhtml+xml" properties="scripted" />
+		<item id="Ruffini_EPUB1-37" href="Ruffini_EPUB1-37.xhtml" media-type="application/xhtml+xml" properties="scripted" />
+		<item id="Ruffini_EPUB1-38" href="Ruffini_EPUB1-38.xhtml" media-type="application/xhtml+xml" />
+		<item id="Ruffini_EPUB1-39" href="Ruffini_EPUB1-39.xhtml" media-type="application/xhtml+xml" />
+		<item id="Ruffini_EPUB1-40" href="Ruffini_EPUB1-40.xhtml" media-type="application/xhtml+xml" />
+		<item id="toc" href="toc.xhtml" media-type="application/xhtml+xml" properties="nav" />
+		<item id="idGeneratedStyles.css" href="css/idGeneratedStyles.css" media-type="text/css" />
+		<item id="BayerUniversalRegular.otf" href="font/BayerUniversalRegular.otf" media-type="application/vnd.ms-opentype" />
+		<item id="Bungee-Regular.ttf" href="font/Bungee-Regular.ttf" media-type="application/x-font-ttf" />
+		<item id="HelveticaLTPro-Bold.otf" href="font/HelveticaLTPro-Bold.otf" media-type="application/vnd.ms-opentype" />
+		<item id="HelveticaLTPro-Roman.ttf" href="font/HelveticaLTPro-Roman.ttf" media-type="application/vnd.ms-opentype" />
+		<item id="HelveticaNeueLTPro-BdCn.otf" href="font/HelveticaNeueLTPro-BdCn.otf" media-type="application/vnd.ms-opentype" />
+		<item id="HelveticaNeueLTPro-BdIt.otf" href="font/HelveticaNeueLTPro-BdIt.otf" media-type="application/vnd.ms-opentype" />
+		<item id="HelveticaNeueLTPro-BlkCn.otf" href="font/HelveticaNeueLTPro-BlkCn.otf" media-type="application/vnd.ms-opentype" />
+		<item id="MinionPro-Regular.otf" href="font/MinionPro-Regular.otf" media-type="application/vnd.ms-opentype" />
+		<item id="Noka-Black.otf" href="font/Noka-Black.otf" media-type="application/vnd.ms-opentype" />
+		<item id="Noka-Bold.otf" href="font/Noka-Bold.otf" media-type="application/vnd.ms-opentype" />
+		<item id="Noka-Light.otf" href="font/Noka-Light.otf" media-type="application/vnd.ms-opentype" />
+		<item id="Noka-Semibold.otf" href="font/Noka-Semibold.otf" media-type="application/vnd.ms-opentype" />
+		<item id="Pixeboy.ttf" href="font/Pixeboy.ttf" media-type="application/vnd.ms-opentype" />
+		<item id="WarblerBanner-BoldItalic.otf" href="font/WarblerBanner-BoldItalic.otf" media-type="application/vnd.ms-opentype" />
+		<item id="WarblerBanner-Italic.otf" href="font/WarblerBanner-Italic.otf" media-type="application/vnd.ms-opentype" />
+		<item id="x001.png" href="image/001.png" media-type="image/png" />
+		<item id="x093306048-fd7e79ad-044f-4225-b709-9dcbd3cfac87.jpg" href="image/093306048-fd7e79ad-044f-4225-b709-9dcbd3cfac87.jpg" media-type="image/jpeg" />
+		<item id="x093306048-fd7e79ad-044f-4225-b709-9dcbd3cfac87.png" href="image/093306048-fd7e79ad-044f-4225-b709-9dcbd3cfac87.png" media-type="image/png" />
+		<item id="x1.png" href="image/1.png" media-type="image/png" properties="cover-image" />
+		<item id="x102.png" href="image/102.png" media-type="image/png" />
+		<item id="x104.png" href="image/104.png" media-type="image/png" />
+		<item id="x108.png" href="image/108.png" media-type="image/png" />
+		<item id="x109.png" href="image/109.png" media-type="image/png" />
+		<item id="x11.png" href="image/11.png" media-type="image/png" />
+		<item id="x111.png" href="image/111.png" media-type="image/png" />
+		<item id="x120.png" href="image/120.png" media-type="image/png" />
+		<item id="x121.png" href="image/121.png" media-type="image/png" />
+		<item id="x123.png" href="image/123.png" media-type="image/png" />
+		<item id="x127.png" href="image/127.png" media-type="image/png" />
+		<item id="x133.png" href="image/133.png" media-type="image/png" />
+		<item id="x134.png" href="image/134.png" media-type="image/png" />
+		<item id="x135.png" href="image/135.png" media-type="image/png" />
+		<item id="x136.png" href="image/136.png" media-type="image/png" />
+		<item id="x137.png" href="image/137.png" media-type="image/png" />
+		<item id="x138.png" href="image/138.png" media-type="image/png" />
+		<item id="x139.png" href="image/139.png" media-type="image/png" />
+		<item id="x140.png" href="image/140.png" media-type="image/png" />
+		<item id="x141.png" href="image/141.png" media-type="image/png" />
+		<item id="x142.png" href="image/142.png" media-type="image/png" />
+		<item id="x143.png" href="image/143.png" media-type="image/png" />
+		<item id="x144.png" href="image/144.png" media-type="image/png" />
+		<item id="x145.png" href="image/145.png" media-type="image/png" />
+		<item id="x150.png" href="image/150.png" media-type="image/png" />
+		<item id="x1614613_10151979385385222_271562772_o.jpg" href="image/1614613_10151979385385222_271562772_o.jpg" media-type="image/jpeg" />
+		<item id="x1614613_10151979385385222_271562772_o1.jpg" href="image/1614613_10151979385385222_271562772_o1.jpg" media-type="image/jpeg" />
+		<item id="x164.png" href="image/164.png" media-type="image/png" />
+		<item id="x171.png" href="image/171.png" media-type="image/png" />
+		<item id="x176.png" href="image/176.png" media-type="image/png" />
+		<item id="x177.png" href="image/177.png" media-type="image/png" />
+		<item id="x178.png" href="image/178.png" media-type="image/png" />
+		<item id="x19.png" href="image/19.png" media-type="image/png" />
+		<item id="x191.png" href="image/191.png" media-type="image/png" />
+		<item id="x192.png" href="image/192.png" media-type="image/png" />
+		<item id="x193.png" href="image/193.png" media-type="image/png" />
+		<item id="x194.png" href="image/194.png" media-type="image/png" />
+		<item id="x195.png" href="image/195.png" media-type="image/png" />
+		<item id="x196.png" href="image/196.png" media-type="image/png" />
+		<item id="x197.png" href="image/197.png" media-type="image/png" />
+		<item id="x198.png" href="image/198.png" media-type="image/png" />
+		<item id="x199.png" href="image/199.png" media-type="image/png" />
+		<item id="x2.png" href="image/2.png" media-type="image/png" />
+		<item id="x200.png" href="image/200.png" media-type="image/png" />
+		<item id="x201.png" href="image/201.png" media-type="image/png" />
+		<item id="x2012-gm-settembre.jpg" href="image/2012-gm-settembre.jpg" media-type="image/jpeg" />
+		<item id="x2016-54-146_01.png" href="image/2016-54-146_01.png" media-type="image/png" />
+		<item id="x207.png" href="image/207.png" media-type="image/png" />
+		<item id="x210.png" href="image/210.png" media-type="image/png" />
+		<item id="x215.png" href="image/215.png" media-type="image/png" />
+		<item id="x216.png" href="image/216.png" media-type="image/png" />
+		<item id="x22.png" href="image/22.png" media-type="image/png" />
+		<item id="x222.png" href="image/222.png" media-type="image/png" />
+		<item id="x228.png" href="image/228.png" media-type="image/png" />
+		<item id="x231.png" href="image/231.png" media-type="image/png" />
+		<item id="x28112019_CM_INVITE_FINAL-04-03-800x1131.jpg" href="image/28112019_CM_INVITE_FINAL-04-03-800x1131.jpg" media-type="image/jpeg" />
+		<item id="x33.jpg" href="image/33.jpg" media-type="image/jpeg" />
+		<item id="x3958c66a0f135c78f35a7fbaeb5659b4.jpg" href="image/3958c66a0f135c78f35a7fbaeb5659b4.jpg" media-type="image/jpeg" />
+		<item id="x40.png" href="image/40.png" media-type="image/png" />
+		<item id="x48.png" href="image/48.png" media-type="image/png" />
+		<item id="x50.png" href="image/50.png" media-type="image/png" />
+		<item id="x6.png" href="image/6.png" media-type="image/png" />
+		<item id="x65616_fa6a921632fc79f3_b.jpg" href="image/65616_fa6a921632fc79f3_b.jpg" media-type="image/jpeg" />
+		<item id="x69.png" href="image/69.png" media-type="image/png" />
+		<item id="x70.png" href="image/70.png" media-type="image/png" />
+		<item id="x70380458_2573563222683192_1572154078413193216_n.png" href="image/70380458_2573563222683192_1572154078413193216_n.png" media-type="image/png" />
+		<item id="x72.png" href="image/72.png" media-type="image/png" />
+		<item id="x80.png" href="image/80.png" media-type="image/png" />
+		<item id="x87.png" href="image/87.png" media-type="image/png" />
+		<item id="x9.png" href="image/9.png" media-type="image/png" />
+		<item id="ai150.png" href="image/ai150.png" media-type="image/png" />
+		<item id="alfons-mucha-la-plume.jpg" href="image/alfons-mucha-la-plume.jpg" media-type="image/jpeg" />
+		<item id="bauhaus150.png" href="image/bauhaus150.png" media-type="image/png" />
+		<item id="bauhaus_hero_v2.2_63b81596-faa0-4ad0-adec-7482c1e93e54.png" href="image/bauhaus_hero_v2.2_63b81596-faa0-4ad0-adec-7482c1e93e54.png" media-type="image/png" />
+		<item id="bayer-universalalphabet.png" href="image/bayer-universalalphabet.png" media-type="image/png" />
+		<item id="beeple-2-2-1024x1024.jpg" href="image/beeple-2-2-1024x1024.jpg" media-type="image/jpeg" />
+		<item id="beeple_everydays_the_first_5000_days.jpg" href="image/beeple_everydays_the_first_5000_days.jpg" media-type="image/jpeg" />
+		<item id="Best-of-Jazz_1.jpg" href="image/Best-of-Jazz_1.jpg" media-type="image/jpeg" />
+		<item id="CH99.jpg" href="image/CH99.jpg" media-type="image/jpeg" />
+		<item id="ChatGPT_Image_11_lug_2025-_15_54_24.png" href="image/ChatGPT_Image_11_lug_2025%2C_15_54_24.png" media-type="image/png" />
+		<item id="ChatGPT_Image_12_lug_2025-_17_54_13.png" href="image/ChatGPT_Image_12_lug_2025%2C_17_54_13.png" media-type="image/png" />
+		<item id="ChatGPT_Image_15_lug_2025-_14_55_47.png" href="image/ChatGPT_Image_15_lug_2025%2C_14_55_47.png" media-type="image/png" />
+		<item id="ChatGPT_Image_9_lug_2025-_15_04_06.png" href="image/ChatGPT_Image_9_lug_2025%2C_15_04_06.png" media-type="image/png" />
+		<item id="digital150.png" href="image/digital150.png" media-type="image/png" />
+		<item id="faff90cb8b8289e68c2e545c28408ca5.jpg" href="image/faff90cb8b8289e68c2e545c28408ca5.jpg" media-type="image/jpeg" />
+		<item id="GA-Noise--bring-in-Da-Funk.jpg" href="image/GA%2BNoise%2C%2Bbring%2Bin%2BDa%2BFunk.jpg" media-type="image/jpeg" />
+		<item id="herbert_bayer_3.jpg" href="image/herbert_bayer_3.jpg" media-type="image/jpeg" />
+		<item id="image_8f84d284-1361-4b08-b3eb-2acc2d758517.png" href="image/image_8f84d284-1361-4b08-b3eb-2acc2d758517.png" media-type="image/png" />
+		<item id="IMG_4404_copia.png" href="image/IMG_4404_copia.png" media-type="image/png" />
+		<item id="IMG_4404_copia1.png" href="image/IMG_4404_copia1.png" media-type="image/png" />
+		<item id="information.png" href="image/information.png" media-type="image/png" />
+		<item id="iphone150.png" href="image/iphone150.png" media-type="image/png" />
+		<item id="john-everett-millais-ofelia-1851-1852-tate-gallery-londra_e433a250_1500x1412.png" href="image/john-everett-millais-ofelia-1851-1852-tate-gallery-londra_e433a250_1500x1412.png" media-type="image/png" />
+		<item id="josef-muller-brockmann-poster.jpg" href="image/josef-muller-brockmann-poster.jpg" media-type="image/jpeg" />
+		<item id="jugen150.png" href="image/jugen150.png" media-type="image/png" />
+		<item id="L9kU8Q3jFgb3D8YPpXfBm7.jpg" href="image/L9kU8Q3jFgb3D8YPpXfBm7.jpg" media-type="image/jpeg" />
+		<item id="leta-wade-design_dezeen_2364_col_4.jpg" href="image/leta-wade-design_dezeen_2364_col_4.jpg" media-type="image/jpeg" />
+		<item id="Lodden-Art-Print-Murellos_2f6630e9-a515-48b0-9597-e590617bddfe_480x480.jpg" href="image/Lodden-Art-Print-Murellos_2f6630e9-a515-48b0-9597-e590617bddfe_480x480.jpg" media-type="image/jpeg" />
+		<item id="memphis150.png" href="image/memphis150.png" media-type="image/png" />
+		<item id="merlin_184196631_ecf9b522-b147-4cbb-88c1-3cf39ae46df1-superJumbo-1024x1280.png" href="image/merlin_184196631_ecf9b522-b147-4cbb-88c1-3cf39ae46df1-superJumbo-1024x1280.png" media-type="image/png" />
+		<item id="merlin_184196679_acecafff-affa-490c-b202-348d20c9c1b2-superJumbo-1024x1280.jpg" href="image/merlin_184196679_acecafff-affa-490c-b202-348d20c9c1b2-superJumbo-1024x1280.jpg" media-type="image/jpeg" />
+		<item id="morris150.png" href="image/morris150.png" media-type="image/png" />
+		<item id="muller.png" href="image/muller.png" media-type="image/png" />
+		<item id="outputTest-366_80755f23d2.jpg" href="image/outputTest-366_80755f23d2.jpg" media-type="image/jpeg" />
+		<item id="P04026_9.jpg" href="image/P04026_9.jpg" media-type="image/jpeg" />
+		<item id="P04027_9.jpg" href="image/P04027_9.jpg" media-type="image/jpeg" />
+		<item id="P04028_9.jpg" href="image/P04028_9.jpg" media-type="image/jpeg" />
+		<item id="P04029_9.jpg" href="image/P04029_9.jpg" media-type="image/jpeg" />
+		<item id="P04030_9.jpg" href="image/P04030_9.jpg" media-type="image/jpeg" />
+		<item id="P04030_91.jpg" href="image/P04030_91.jpg" media-type="image/jpeg" />
+		<item id="P04031_9.jpg" href="image/P04031_9.jpg" media-type="image/jpeg" />
+		<item id="P04032_9.jpg" href="image/P04032_9.jpg" media-type="image/jpeg" />
+		<item id="P04033_9.png" href="image/P04033_9.png" media-type="image/png" />
+		<item id="P04037_9.jpg" href="image/P04037_9.jpg" media-type="image/jpeg" />
+		<item id="Pintori-Frecce.jpg" href="image/Pintori-Frecce.jpg" media-type="image/jpeg" />
+		<item id="pirelli-1953.jpg" href="image/pirelli-1953.jpg" media-type="image/jpeg" />
+		<item id="provapatternbauhaus.png" href="image/provapatternbauhaus.png" media-type="image/png" />
+		<item id="provapatternbauhaus1.png" href="image/provapatternbauhaus1.png" media-type="image/png" />
+		<item id="Punt-e-mes.jpg" href="image/Punt-e-mes.jpg" media-type="image/jpeg" />
+		<item id="roccia.png" href="image/roccia.png" media-type="image/png" />
+		<item id="rome-psc-65-1603107045-150-782.jpg" href="image/rome-psc-65-1603107045-150-782.jpg" media-type="image/jpeg" />
+		<item id="Screenshot_2025-07-10_104523.png" href="image/Screenshot_2025-07-10_104523.png" media-type="image/png" />
+		<item id="Screenshot_2025-07-10_104558.png" href="image/Screenshot_2025-07-10_104558.png" media-type="image/png" />
+		<item id="snakeshead.png" href="image/snakeshead.png" media-type="image/png" />
+		<item id="snakeshead1.png" href="image/snakeshead1.png" media-type="image/png" />
+		<item id="sommario1.png" href="image/sommario1.png" media-type="image/png" />
+		<item id="strawberry-thief-william-morris-pattern-artwork-print-framed-wall-art-picturevintage-frog-ta-700711_800x.jpg" href="image/strawberry-thief-william-morris-pattern-artwork-print-framed-wall-art-picturevintage-frog-ta-700711_800x.jpg" media-type="image/jpeg" />
+		<item id="swissstyle150.png" href="image/swissstyle150.png" media-type="image/png" />
+		<item id="tipografia150.png" href="image/tipografia150.png" media-type="image/png" />
+		<item id="unnamed.jpg" href="image/unnamed.jpg" media-type="image/jpeg" />
+		<item id="viva-musica-41208-vintage-poster.jpg__960x0_q85_subsampling-2_upscale.jpg" href="image/viva-musica-41208-vintage-poster.jpg__960x0_q85_subsampling-2_upscale.jpg" media-type="image/jpeg" />
+		<item id="viva-musica-41208-vintage-poster.jpg__960x0_q85_subsampling-2_upscale1.jpg" href="image/viva-musica-41208-vintage-poster.jpg__960x0_q85_subsampling-2_upscale1.jpg" media-type="image/jpeg" />
+		<item id="W1siZiIsIjYwMjMxMSJdLFsicCIsImNvbnZlcnQiLCItcXVhbGl0eSA5MCAtcmVzaXplIDIwMDB4MjAwMFx1MDAzZSJdXQ.jpg" href="image/W1siZiIsIjYwMjMxMSJdLFsicCIsImNvbnZlcnQiLCItcXVhbGl0eSA5MCAtcmVzaXplIDIwMDB4MjAwMFx1MDAzZSJdXQ.jpg" media-type="image/jpeg" />
+		<item id="Wet-Magazine-Vol-4-Issue-2-1979.-Designed-by-April-Greiman-copy.jpg" href="image/Wet-Magazine-Vol-4-Issue-2-1979.-Designed-by-April-Greiman-copy.jpg" media-type="image/jpeg" />
+		<item id="Wet-Magazine-Vol-4-Issue-2-1979.-Designed-by-April-Greiman-copy1.jpg" href="image/Wet-Magazine-Vol-4-Issue-2-1979.-Designed-by-April-Greiman-copy1.jpg" media-type="image/jpeg" />
+		<item id="whatyouprint.png" href="image/whatyouprint.png" media-type="image/png" />
+		<item id="william-morris-blue-art-nouveau-floral-william-morris.jpg" href="image/william-morris-blue-art-nouveau-floral-william-morris.jpg" media-type="image/jpeg" />
+		<item id="william-morris-willow-bough-blue-furnishings-cotton-size-sample-30941-p.png" href="image/william-morris-willow-bough-blue-furnishings-cotton-size-sample-30941-p.png" media-type="image/png" />
+		<item id="william-morris-willow-bough-blue-furnishings-cotton-size-sample-30941-p1.png" href="image/william-morris-willow-bough-blue-furnishings-cotton-size-sample-30941-p1.png" media-type="image/png" />
+		<item id="William_Morris_-_William_Morris_Wallpaper_Sample_with_Forget-Me-Nots_c1870_-colour_woodblock_prin_-_-MeisterDrucke-963966-.jpg" href="image/William_Morris_-_William_Morris_Wallpaper_Sample_with_Forget-Me-Nots_c1870_%28colour_woodblock_prin_-_%28MeisterDrucke-963966%29.jpg" media-type="image/jpeg" />
+		<item id="william_morris_matita.png" href="image/william_morris_matita.png" media-type="image/png" />
+		<item id="zach-lieberman-al-muda-museum-of-digital-art-di-zurigo_03.jpg" href="image/zach-lieberman-al-muda-museum-of-digital-art-di-zurigo_03.jpg" media-type="image/jpeg" />
+		<item id="Zach_Lieberman__Blob_Family_Dashe.width-1440.format-jpeg_W2DwrfskcDTUQ0Mb.jpg" href="image/Zach_Lieberman__Blob_Family_Dashe.width-1440.format-jpeg_W2DwrfskcDTUQ0Mb.jpg" media-type="image/jpeg" />
+		<item id="idGeneratedScript.js" href="script/idGeneratedScript.js" media-type="text/javascript" />
+	</manifest>
+	<spine>
+		<itemref idref="Ruffini_EPUB1-1" />
+		<itemref idref="Ruffini_EPUB1-2" />
+		<itemref idref="Ruffini_EPUB1-3" />
+		<itemref idref="Ruffini_EPUB1-4" />
+		<itemref idref="Ruffini_EPUB1-5" />
+		<itemref idref="Ruffini_EPUB1-6" />
+		<itemref idref="Ruffini_EPUB1-7" />
+		<itemref idref="Ruffini_EPUB1-8" />
+		<itemref idref="Ruffini_EPUB1-9" />
+		<itemref idref="Ruffini_EPUB1-10" />
+		<itemref idref="Ruffini_EPUB1-11" />
+		<itemref idref="Ruffini_EPUB1-12" />
+		<itemref idref="Ruffini_EPUB1-13" />
+		<itemref idref="Ruffini_EPUB1-14" />
+		<itemref idref="Ruffini_EPUB1-15" />
+		<itemref idref="Ruffini_EPUB1-16" />
+		<itemref idref="Ruffini_EPUB1-17" />
+		<itemref idref="Ruffini_EPUB1-18" />
+		<itemref idref="Ruffini_EPUB1-19" />
+		<itemref idref="Ruffini_EPUB1-20" />
+		<itemref idref="Ruffini_EPUB1-21" />
+		<itemref idref="Ruffini_EPUB1-22" />
+		<itemref idref="Ruffini_EPUB1-23" />
+		<itemref idref="Ruffini_EPUB1-24" />
+		<itemref idref="Ruffini_EPUB1-25" />
+		<itemref idref="Ruffini_EPUB1-26" />
+		<itemref idref="Ruffini_EPUB1-27" />
+		<itemref idref="Ruffini_EPUB1-28" />
+		<itemref idref="Ruffini_EPUB1-29" />
+		<itemref idref="Ruffini_EPUB1-30" />
+		<itemref idref="Ruffini_EPUB1-31" />
+		<itemref idref="Ruffini_EPUB1-32" />
+		<itemref idref="Ruffini_EPUB1-33" />
+		<itemref idref="Ruffini_EPUB1-34" />
+		<itemref idref="Ruffini_EPUB1-35" />
+		<itemref idref="Ruffini_EPUB1-36" />
+		<itemref idref="Ruffini_EPUB1-37" />
+		<itemref idref="Ruffini_EPUB1-38" />
+		<itemref idref="Ruffini_EPUB1-39" />
+		<itemref idref="Ruffini_EPUB1-40" />
+	</spine>
+</package>

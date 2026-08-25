@@ -1,0 +1,519 @@
+/* ---- Case-study pages ---------------------------------------------------
+   Each project's full write-up lives at its own URL (opened in a new tab from
+   the room's "learn more" button) but is still styled to read as a maximized
+   program window: a pinned title bar borrowed straight from retro-window.css
+   (.win-titlebar / .win-raised / .win-sunken), with the case-study content
+   filling the sunken "screen" area underneath. --cs-a/--cs-b are set inline
+   per project (ProjectCaseStudy.tsx), so each case study can carry its own
+   accent from the site's cyan/magenta/hot-pink/pastel family while sharing
+   this one layout and chrome. */
+
+/* The window sits inset within a plain dark "desktop" backdrop (the same void
+   colour the 3D room floats in) rather than running flush to the viewport
+   edge — enough margin to read as a window, not so much that it stops
+   feeling like a dedicated page. */
+.cs-desktop {
+  --cs-inset: clamp(10px, 1.8vw, 26px);
+  min-height: 100vh;
+  background: #00262a;
+  padding: var(--cs-inset);
+  box-sizing: border-box;
+}
+
+.cs-window {
+  min-height: calc(100vh - (var(--cs-inset) * 2));
+  display: flex;
+  flex-direction: column;
+  background: #050a0a;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.6);
+}
+
+.cs-titlebar {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  flex-shrink: 0;
+}
+
+/* Neutral near-black base (no violet undertone of its own) so the accent
+   colour, not a hardcoded dark purple, is what actually reads on the page. */
+.cs-body {
+  position: relative;
+  flex: 1;
+  overflow-x: hidden;
+  background: radial-gradient(ellipse at 50% -10%, color-mix(in srgb, var(--cs-a) 55%, #050a0a) 0%, #050a0a 55%),
+    linear-gradient(180deg,
+      color-mix(in srgb, var(--cs-a) 14%, #050a0a) 0%,
+      #050a0a 42%,
+      color-mix(in srgb, var(--cs-a) 10%, #050a0a) 100%);
+  color: #f2ecff;
+  font-family: 'Tahoma', 'Verdana', sans-serif;
+  padding-bottom: 6rem;
+}
+
+/* A perspective grid fading into the horizon, the same neon-floor language as
+   the 3D room, pinned under the hero rather than running the full page. */
+.cs-grid-floor {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 0;
+  background-image:
+    linear-gradient(var(--cs-a) 1px, transparent 1px),
+    linear-gradient(90deg, var(--cs-a) 1px, transparent 1px);
+  background-size: 64px 64px;
+  opacity: 0.16;
+  mask-image: linear-gradient(to bottom, transparent 0%, black 38%, black 62%, transparent 92%);
+  transform: perspective(420px) rotateX(62deg);
+  transform-origin: top center;
+}
+
+.cs-scanlines {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 5;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.35) 0px,
+    rgba(0, 0, 0, 0.35) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+  opacity: 0.22;
+  mix-blend-mode: multiply;
+}
+
+.cs-back {
+  display: inline-block;
+  color: #f2ecff;
+  text-decoration: none;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  padding: 0.5rem 0.9rem;
+  border: 1px solid color-mix(in srgb, var(--cs-a) 55%, transparent);
+  background: rgba(255, 255, 255, 0.04);
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.cs-back:hover {
+  background: color-mix(in srgb, var(--cs-a) 18%, transparent);
+  border-color: var(--cs-a);
+}
+
+/* ---- Hero ---------------------------------------------------------- */
+
+.cs-hero {
+  position: relative;
+  z-index: 2;
+  max-width: 880px;
+  margin: 0 auto;
+  padding: clamp(2.4rem, 8vw, 5rem) clamp(1.2rem, 5vw, 2rem) 2rem;
+  text-align: center;
+}
+
+.cs-eyebrow {
+  margin: 0 0 1rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  color: var(--cs-b);
+  text-transform: uppercase;
+}
+
+.cs-title {
+  margin: 0 0 1.1rem;
+  font-family: 'Cinzel Decorative', 'Cinzel', 'Tahoma', serif;
+  font-weight: 900;
+  font-size: clamp(2.6rem, 8vw, 4.6rem);
+  line-height: 1.05;
+  letter-spacing: 0.02em;
+  color: #fff;
+  text-shadow:
+    0 0 18px color-mix(in srgb, var(--cs-a) 70%, transparent),
+    3px 0 0 color-mix(in srgb, var(--cs-a) 85%, transparent),
+    -3px 0 0 color-mix(in srgb, var(--cs-b) 85%, transparent);
+}
+
+/* Reserved for a couple of the more playful, viral projects: the title fills
+   with the same rainbow gradient as the "learn more" button instead of a
+   flat glow, animated the same lazy drift. */
+.cs-hero--rainbow .cs-title {
+  background: linear-gradient(90deg, #ff5f9e, #ff9f45, #ffe34f, #6ee7a8, #58d3f7, #a78bfa, #ff5f9e);
+  background-size: 200% 100%;
+  animation: cs-rainbow-shift 9s linear infinite;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: none;
+  filter: drop-shadow(0 0 22px color-mix(in srgb, var(--cs-a) 55%, transparent));
+}
+
+@keyframes cs-rainbow-shift {
+  to { background-position: 200% 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cs-hero--rainbow .cs-title {
+    animation: none;
+  }
+}
+
+.cs-tagline {
+  margin: 0 auto 0.6rem;
+  max-width: 640px;
+  font-size: clamp(1rem, 2.4vw, 1.25rem);
+  font-weight: 700;
+  color: #f2ecff;
+  line-height: 1.5;
+}
+
+.cs-subtagline {
+  margin: 0 auto 2rem;
+  max-width: 560px;
+  font-size: 0.9rem;
+  color: color-mix(in srgb, #f2ecff 70%, transparent);
+  font-style: italic;
+}
+
+.cs-meta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0;
+  margin: 0 auto;
+  max-width: 640px;
+  border-top: 1px solid color-mix(in srgb, var(--cs-a) 40%, transparent);
+  border-bottom: 1px solid color-mix(in srgb, var(--cs-a) 40%, transparent);
+}
+
+.cs-meta-item {
+  flex: 1 1 130px;
+  padding: 0.85rem 0.6rem;
+  border-left: 1px solid color-mix(in srgb, var(--cs-a) 25%, transparent);
+}
+
+.cs-meta-item:first-child {
+  border-left: none;
+}
+
+.cs-meta-item dt {
+  font-size: 0.62rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, #f2ecff 55%, transparent);
+  margin-bottom: 0.3rem;
+}
+
+.cs-meta-item dd {
+  margin: 0;
+  font-size: 0.86rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+/* Links out to the live demo. A pill in the page's own accent, deliberately
+   redundant with the summary card's own "Try it out!" button. */
+.cs-demo-btn {
+  display: inline-block;
+  margin-top: 1.8rem;
+  padding: 0.6rem 2rem;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--cs-a), var(--cs-b));
+  border: 2px solid rgba(255, 255, 255, 0.55);
+  box-shadow: 0 8px 22px -6px rgba(0, 0, 0, 0.6);
+  color: #14101f;
+  font-family: 'Tahoma', 'Verdana', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.4);
+  transition: transform 0.15s ease;
+}
+
+.cs-demo-btn:hover {
+  transform: translateY(-2px);
+}
+
+/* ---- Cover image ----------------------------------------------------- */
+
+.cs-cover-frame {
+  position: relative;
+  z-index: 2;
+  max-width: 960px;
+  margin: 0 auto 4rem;
+  padding: 0 clamp(1rem, 5vw, 2rem);
+}
+
+.cs-cover {
+  width: 100%;
+  display: block;
+  border: 1px solid color-mix(in srgb, var(--cs-a) 45%, transparent);
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.4), 0 30px 70px -20px rgba(0, 0, 0, 0.7),
+    0 0 60px -10px color-mix(in srgb, var(--cs-a) 55%, transparent);
+}
+
+/* Extra screenshots below the main cover, for projects with more than one
+   worthwhile shot. Same treatment as the cover but smaller and in a row. */
+.cs-gallery {
+  position: relative;
+  z-index: 2;
+  max-width: 960px;
+  margin: -2.5rem auto 4rem;
+  padding: 0 clamp(1rem, 5vw, 2rem);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 0.9rem;
+}
+
+.cs-gallery-img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  display: block;
+  border: 1px solid color-mix(in srgb, var(--cs-a) 40%, transparent);
+  box-shadow: 0 12px 26px -10px rgba(0, 0, 0, 0.6);
+}
+
+/* Embedded documentary/process video, same width and framing treatment as
+   the cover image so the two read as one media block. */
+.cs-video-frame {
+  position: relative;
+  z-index: 2;
+  max-width: 960px;
+  margin: 0 auto 4rem;
+  padding: 0 clamp(1rem, 5vw, 2rem);
+}
+
+.cs-video {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  display: block;
+  border: 1px solid color-mix(in srgb, var(--cs-a) 45%, transparent);
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.4), 0 30px 70px -20px rgba(0, 0, 0, 0.7),
+    0 0 60px -10px color-mix(in srgb, var(--cs-a) 55%, transparent);
+}
+
+/* Vertical/social-format footage: full-width 16:9 would letterbox it down to
+   a sliver, so cap the width instead and let it run tall. */
+.cs-video-frame--portrait .cs-video {
+  aspect-ratio: 9 / 16;
+  max-width: 380px;
+  margin: 0 auto;
+}
+
+/* ---- Sections ---------------------------------------------------------- */
+
+.cs-section {
+  position: relative;
+  z-index: 2;
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 2.6rem clamp(1.2rem, 5vw, 2rem);
+  border-top: 1px solid color-mix(in srgb, var(--cs-a) 22%, transparent);
+}
+
+.cs-section-heading {
+  margin: 0 0 0.8rem;
+  font-family: 'Press Start 2P', 'Tahoma', monospace;
+  font-weight: 400;
+  font-size: clamp(0.95rem, 2.2vw, 1.25rem);
+  line-height: 1.5;
+  color: #fff;
+  letter-spacing: 0.02em;
+}
+
+.cs-section-intro {
+  margin: 0 0 1.8rem;
+  max-width: 620px;
+  color: color-mix(in srgb, #f2ecff 78%, transparent);
+  line-height: 1.6;
+}
+
+.cs-section-para {
+  margin: 1.2rem 0 0;
+  max-width: 680px;
+  line-height: 1.7;
+  color: color-mix(in srgb, #f2ecff 82%, transparent);
+}
+
+/* Icon + title + text cards, used for the Experience steps, Visual Language
+   pillars, micro-interactions, future iterations, etc. */
+.cs-items {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.1rem;
+}
+
+.cs-item {
+  padding: 1.1rem 1.15rem;
+  background: rgba(255, 255, 255, 0.035);
+  border: 1px solid color-mix(in srgb, var(--cs-a) 22%, transparent);
+}
+
+/* Pixel-art SVGs (fill="currentColor" in the source file) rendered through a
+   CSS mask instead of <img>, so they pick up the page's own accent colour
+   rather than being stuck at whatever colour they were exported in. */
+.cs-item-icon {
+  display: block;
+  width: 22px;
+  height: 22px;
+  margin-bottom: 0.6rem;
+  background-color: var(--cs-b);
+  -webkit-mask: var(--icon) no-repeat center / contain;
+  mask: var(--icon) no-repeat center / contain;
+}
+
+.cs-item-title {
+  margin: 0 0 0.35rem;
+  font-size: 0.86rem;
+  font-weight: 700;
+  color: var(--cs-b);
+}
+
+.cs-item-text {
+  margin: 0;
+  font-size: 0.82rem;
+  line-height: 1.55;
+  color: color-mix(in srgb, #f2ecff 82%, transparent);
+}
+
+/* Small labelled numbers, used for the rarity system and performance sections. */
+.cs-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.cs-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 1rem 0.5rem;
+  border: 1px solid color-mix(in srgb, var(--cs-a) 30%, transparent);
+  background: linear-gradient(180deg, color-mix(in srgb, var(--cs-a) 10%, transparent), transparent);
+}
+
+.cs-stat-value {
+  font-family: 'Cinzel', 'Tahoma', serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #fff;
+  text-shadow: 0 0 14px color-mix(in srgb, var(--cs-a) 65%, transparent);
+}
+
+.cs-stat-label {
+  margin-top: 0.3rem;
+  font-size: 0.66rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, #f2ecff 60%, transparent);
+}
+
+/* ---- Quote --------------------------------------------------------- */
+
+.cs-quote {
+  position: relative;
+  z-index: 2;
+  max-width: 720px;
+  margin: 1rem auto 0;
+  padding: 3rem clamp(1.2rem, 5vw, 2rem);
+  text-align: center;
+  border-top: 1px solid color-mix(in srgb, var(--cs-a) 22%, transparent);
+}
+
+.cs-quote-text {
+  margin: 0 0 1.2rem;
+  font-family: 'Press Start 2P', 'Tahoma', monospace;
+  font-size: clamp(0.8rem, 1.8vw, 1.05rem);
+  line-height: 1.9;
+  color: #fff;
+}
+
+.cs-quote-attr {
+  margin: 0;
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--cs-b);
+}
+
+.cs-quote-coda {
+  margin: 1.4rem 0 0;
+  font-size: 0.92rem;
+  font-style: italic;
+  color: color-mix(in srgb, #f2ecff 75%, transparent);
+}
+
+/* ---- Fallback (no rich case study yet) --------------------------------- */
+
+.cs-fallback .cs-item {
+  align-items: center;
+}
+
+.cs-coming-soon {
+  margin: 1.6rem 0 0;
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  color: color-mix(in srgb, #f2ecff 55%, transparent);
+  text-transform: uppercase;
+}
+
+/* ---- Footer & not-found --------------------------------------------- */
+
+.cs-footer {
+  position: relative;
+  z-index: 2;
+  max-width: 880px;
+  margin: 3rem auto 0;
+  padding: 2rem clamp(1.2rem, 5vw, 2rem) 0;
+  border-top: 1px solid color-mix(in srgb, var(--cs-a) 22%, transparent);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.2rem;
+}
+
+.cs-tools {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.cs-tool-tag {
+  padding: 0.3rem 0.7rem;
+  font-size: 0.72rem;
+  border: 1px solid color-mix(in srgb, var(--cs-a) 40%, transparent);
+  color: color-mix(in srgb, #f2ecff 85%, transparent);
+}
+
+.cs-notfound {
+  position: relative;
+  z-index: 2;
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  text-align: center;
+}
+
+@media (max-width: 600px) {
+  .cs-meta-item {
+    flex-basis: 45%;
+    border-left: none;
+    border-top: 1px solid color-mix(in srgb, var(--cs-a) 25%, transparent);
+  }
+  .cs-meta-item:nth-child(-n + 2) {
+    border-top: none;
+  }
+}

@@ -1,0 +1,18 @@
+* {
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  /* min-height, not height: the intro is a tall scroll runway, and a hard 100%
+     here would cap the page at one viewport and kill the scroll it needs. */
+  min-height: 100%;
+}
+
+body {
+  background: #0a0810;
+  color: #f7f2ea;
+  font-family: 'Segoe UI', system-ui, sans-serif;
+}

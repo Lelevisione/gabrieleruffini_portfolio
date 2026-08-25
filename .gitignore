@@ -1,0 +1,29 @@
+# dependencies
+node_modules/
+
+# build output
+dist/
+dist-ssr/
+*.local
+*.tsbuildinfo
+
+# editor/OS
+.DS_Store
+Thumbs.db
+
+# tool-local config
+.claude/
+
+# raw working assets (source material for the pipeline; the site serves
+# the processed copies from public/assets instead)
+/assets/
+/blender/
+/musica/
+/icons_32x32/
+/fotoprogettiRiassunto/
+/base.gif
+/hero.png
+
+# stray scratch files
+Users*scratchpad*
+/Th/
