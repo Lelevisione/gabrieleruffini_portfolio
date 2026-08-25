@@ -6,6 +6,10 @@ dist/
 dist-ssr/
 *.local
 *.tsbuildinfo
+# tsc -b (run as part of `npm run build`) compiles vite.config.ts as a side
+# effect of building the tsconfig.node.json project reference
+/vite.config.js
+/vite.config.d.ts
 
 # editor/OS
 .DS_Store

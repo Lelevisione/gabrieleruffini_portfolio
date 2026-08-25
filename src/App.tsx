@@ -4,7 +4,7 @@ import ProjectCaseStudy from './pages/ProjectCaseStudy'
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={import.meta.env.BASE_URL}>
       <Routes>
         <Route path="/" element={<Home />} />
         {/* Opened from the room's "learn more" button, in a new tab — its own

@@ -1,5 +1,6 @@
 import WindowFrame from './WindowFrame'
 import { projectById } from '../../data/projects'
+import { asset } from '../../lib/asset'
 
 interface ProjectWindowProps {
   projectId: string
@@ -46,7 +47,7 @@ function ProjectWindow({ projectId, index, onClose }: ProjectWindowProps) {
         {/* Cover images are named to match the project id exactly (see
             public/assets/img/projects/), so no per-project field to keep in sync. */}
         <div className="win-sunken project-shot">
-          <img src={`/assets/img/projects/${p.id}.png`} alt={p.title} loading="lazy" />
+          <img src={asset(`assets/img/projects/${p.id}.png`)} alt={p.title} loading="lazy" />
         </div>
 
         <p>{p.context}</p>
@@ -61,7 +62,7 @@ function ProjectWindow({ projectId, index, onClose }: ProjectWindowProps) {
         <div className="project-cta-row">
           <a
             className={`win-raised project-cta ${p.demoUrl ? 'project-cta--half' : ''}`}
-            href={`/projects/${p.id}`}
+            href={asset(`projects/${p.id}`)}
             target="_blank"
             rel="noopener noreferrer"
           >

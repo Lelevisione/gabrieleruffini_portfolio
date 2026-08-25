@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { projectById } from '../data/projects'
 import { caseStudyFor } from '../data/caseStudies'
+import { asset } from '../lib/asset'
 
 // One accent per room category, not per project: every project under the same
 // hotspot shares a background family, so clicking between them inside one
@@ -62,7 +63,7 @@ function ProjectCaseStudy() {
     )
   }
 
-  const cover = `/assets/img/projects/${project.id}.png`
+  const cover = asset(`assets/img/projects/${project.id}.png`)
 
   return (
     <div className="cs-desktop">
@@ -111,7 +112,7 @@ function ProjectCaseStudy() {
         {study?.gallery && study.gallery.length > 0 && (
           <div className="cs-gallery">
             {study.gallery.map((file) => (
-              <img key={file} src={`/assets/img/projects/${file}`} alt="" className="cs-gallery-img" loading="lazy" />
+              <img key={file} src={asset(`assets/img/projects/${file}`)} alt="" className="cs-gallery-img" loading="lazy" />
             ))}
           </div>
         )}
@@ -156,7 +157,7 @@ function ProjectCaseStudy() {
                       <div className="cs-item" key={it.title}>
                         <span
                           className="cs-item-icon"
-                          style={{ ['--icon' as string]: `url(/assets/icons/pixelart/${it.icon}.svg)` }}
+                          style={{ ['--icon' as string]: `url(${asset(`assets/icons/pixelart/${it.icon}.svg`)})` }}
                         />
                         <h3 className="cs-item-title">{it.title}</h3>
                         <p className="cs-item-text">{it.text}</p>
@@ -187,7 +188,7 @@ function ProjectCaseStudy() {
                 <div className="cs-item" key={h}>
                   <span
                     className="cs-item-icon"
-                    style={{ ['--icon' as string]: 'url(/assets/icons/pixelart/check-double.svg)' }}
+                    style={{ ['--icon' as string]: `url(${asset('assets/icons/pixelart/check-double.svg')})` }}
                   />
                   <p className="cs-item-text">{h}</p>
                 </div>

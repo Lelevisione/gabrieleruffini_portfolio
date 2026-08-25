@@ -1,4 +1,5 @@
 import WindowFrame from './WindowFrame'
+import { asset } from '../../lib/asset'
 
 interface ContactsWindowProps {
   onClose: () => void
@@ -46,7 +47,7 @@ function ContactsWindow({ onClose }: ContactsWindowProps) {
               >
                 <span
                   className="resume-icon"
-                  style={{ ['--icon' as string]: `url(/assets/icons/pixelart/${c.icon}.svg)` }}
+                  style={{ ['--icon' as string]: `url(${asset(`assets/icons/pixelart/${c.icon}.svg`)})` }}
                 />
               </span>
               <span className="contact-info">

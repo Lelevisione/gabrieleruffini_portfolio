@@ -13,6 +13,7 @@ import EbookReaderWindow from '../components/WindowChrome/EbookReaderWindow'
 import HeroIntro from '../components/Intro/HeroIntro'
 import { useMusicPlayer } from '../hooks/useMusicPlayer'
 import { ebookById } from '../data/ebooks'
+import { asset } from '../lib/asset'
 
 type WindowId = 'room' | 'readme' | 'about' | 'contacts' | 'resume' | 'music' | 'library'
 
@@ -113,7 +114,7 @@ function Home() {
   const icons: DesktopIcon[] = [
     {
       id: 'tutorial',
-      icon: '/assets/icons/search.png',
+      icon: asset('assets/icons/search.png'),
       label: 'tutorial',
       x: 3.5,
       y: 6,
@@ -121,7 +122,7 @@ function Home() {
     },
     {
       id: 'library',
-      icon: '/assets/icons/text_file_2.png',
+      icon: asset('assets/icons/text_file_2.png'),
       label: 'library',
       x: 10,
       y: 6,
@@ -129,7 +130,7 @@ function Home() {
     },
     {
       id: 'resume',
-      icon: '/assets/icons/folder_open.png',
+      icon: asset('assets/icons/folder_open.png'),
       label: 'resume',
       x: 3.5,
       y: 18,
@@ -137,7 +138,7 @@ function Home() {
     },
     {
       id: 'music',
-      icon: '/assets/icons/music.png',
+      icon: asset('assets/icons/music.png'),
       label: 'lofi player',
       x: 10,
       y: 18,
@@ -145,7 +146,7 @@ function Home() {
     },
     {
       id: 'portfolio',
-      icon: '/assets/icons/program.png',
+      icon: asset('assets/icons/program.png'),
       label: 'portfolio.exe',
       x: 6.75,
       y: 30,

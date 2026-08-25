@@ -3,6 +3,7 @@
  * English voice. Kept as data (like projects.ts / caseStudies.ts) so the
  * component underneath stays pure layout.
  */
+import { asset } from '../lib/asset'
 
 export interface ResumeEntry {
   period: string
@@ -24,7 +25,7 @@ export const PROFILE = {
   role: 'Digital Creative, Visual Design & Social Communication',
   location: 'Tuscany, Italy',
   email: 'gabrieleruffini@icloud.com',
-  photo: '/assets/img/profile/gabriele-ruffini.jpg',
+  photo: asset('assets/img/profile/gabriele-ruffini.jpg'),
 }
 
 export const EXPERIENCE: ResumeEntry[] = [

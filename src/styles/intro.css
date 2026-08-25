@@ -25,7 +25,9 @@
    same element, so overriding it here needs !important to win. */
 @media (max-width: 700px) {
   .intro-sticky {
-    --hero: url('/assets/img/hero-mobile.png') !important;
+    /* Hardcoded to the GitHub Pages project-page subpath, same reason as the
+       desktop wallpaper in desktop.css: plain CSS can't reach import.meta. */
+    --hero: url('/gabrieleruffini_portfolio/assets/img/hero-mobile.png') !important;
   }
 }
 

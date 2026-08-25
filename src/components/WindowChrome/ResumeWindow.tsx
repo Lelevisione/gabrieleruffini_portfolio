@@ -1,5 +1,6 @@
 import { ReactNode, useState } from 'react'
 import WindowFrame from './WindowFrame'
+import { asset } from '../../lib/asset'
 import {
   PROFILE,
   EXPERIENCE,
@@ -16,7 +17,7 @@ interface ResumeWindowProps {
 }
 
 function Icon({ name }: { name: string }) {
-  return <span className="resume-icon" style={{ ['--icon' as string]: `url(/assets/icons/pixelart/${name}.svg)` }} />
+  return <span className="resume-icon" style={{ ['--icon' as string]: `url(${asset(`assets/icons/pixelart/${name}.svg`)})` }} />
 }
 
 function Section({ icon, title, children }: { icon: string; title: string; children: ReactNode }) {

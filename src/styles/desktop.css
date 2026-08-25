@@ -19,7 +19,10 @@
   transform: translate(-50%, -50%);
   width: max(100vw, calc(100vh * 16 / 9));
   height: max(100vh, calc(100vw * 9 / 16));
-  background-image: url('/assets/img/base.gif');
+  /* Root-absolute + Vite's base-URL doesn't mix inside plain CSS (no
+     import.meta access here), so the GitHub Pages project-page subpath is
+     spelled out directly instead of going through the asset() helper. */
+  background-image: url('/gabrieleruffini_portfolio/assets/img/base.gif');
   background-size: 100% 100%;
   background-repeat: no-repeat;
   image-rendering: pixelated;
@@ -47,7 +50,7 @@
     background-position: center;
     /* Placed after the base rule's own background-image so source order,
        not just the media query, is what makes this win. */
-    background-image: url('/assets/img/mobile-wallpaper.gif');
+    background-image: url('/gabrieleruffini_portfolio/assets/img/mobile-wallpaper.gif');
   }
 }
 

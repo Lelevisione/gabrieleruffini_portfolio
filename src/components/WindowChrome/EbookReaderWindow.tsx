@@ -1,6 +1,7 @@
 import { useContext, useEffect, useMemo, useState } from 'react'
 import { motion, useDragControls } from 'framer-motion'
 import { DesktopBoundsContext, nextZ } from './WindowFrame'
+import { asset } from '../../lib/asset'
 import { Ebook, Spread, buildPageSequence, pageUrl } from '../../data/ebooks'
 
 interface EbookReaderWindowProps {
@@ -171,7 +172,7 @@ function EbookReaderWindow({ book, onClose }: EbookReaderWindowProps) {
         disabled={atStart}
         aria-label="Previous page"
       >
-        <span className="resume-icon" style={{ ['--icon' as string]: 'url(/assets/icons/pixelart/chevron-left.svg)' }} />
+        <span className="resume-icon" style={{ ['--icon' as string]: `url(${asset('assets/icons/pixelart/chevron-left.svg')})` }} />
       </button>
 
       <div className={`ebook-spread-inner ${phase ? `ebook-flip-${phase}` : ''} ${dir ? `ebook-flip-${dir}` : ''}`}>
@@ -200,7 +201,7 @@ function EbookReaderWindow({ book, onClose }: EbookReaderWindowProps) {
         disabled={atEnd}
         aria-label="Next page"
       >
-        <span className="resume-icon" style={{ ['--icon' as string]: 'url(/assets/icons/pixelart/chevron-right.svg)' }} />
+        <span className="resume-icon" style={{ ['--icon' as string]: `url(${asset('assets/icons/pixelart/chevron-right.svg')})` }} />
       </button>
     </motion.div>
   )

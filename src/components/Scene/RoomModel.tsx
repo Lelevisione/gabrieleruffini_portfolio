@@ -3,6 +3,7 @@ import { useGLTF } from '@react-three/drei'
 import { ThreeEvent } from '@react-three/fiber'
 import * as THREE from 'three'
 import { hotspotFromNodeName } from '../../scene/hotspots'
+import { asset } from '../../lib/asset'
 
 // Lighting is baked into vertex colors in Blender (Cycles) and displayed via an
 // unlit (KHR_materials_unlit) material — no dynamic Three.js lights needed.
@@ -29,7 +30,7 @@ interface RoomModelProps {
 }
 
 function RoomModel({ hoveredId, onHover, onSelect, onHotspotsReady, onOpenOrFocusMusic }: RoomModelProps) {
-  const { scene } = useGLTF('/assets/models/room.glb')
+  const { scene } = useGLTF(asset('assets/models/room.glb'))
   const hotspotMeshes = useRef<Map<string, THREE.Mesh>>(new Map())
 
   // Every mesh shares one baked material, so tinting it directly would light up
@@ -112,6 +113,6 @@ function RoomModel({ hoveredId, onHover, onSelect, onHotspotsReady, onOpenOrFocu
   )
 }
 
-useGLTF.preload('/assets/models/room.glb')
+useGLTF.preload(asset('assets/models/room.glb'))
 
 export default RoomModel

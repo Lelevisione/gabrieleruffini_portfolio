@@ -12,6 +12,7 @@
  * pages are already pre-composed two-page spreads exported as one image, the
  * standard InDesign booklet export — pairing those again would double them up).
  */
+import { asset } from '../lib/asset'
 
 export interface Ebook {
   id: string
@@ -38,24 +39,24 @@ export const EBOOKS: Ebook[] = [
     id: 'cronache-del-segno',
     title: 'Cronache del Segno',
     subtitle: 'A small history of graphic design',
-    cover: '/assets/img/projects/graphic-design-ebook.png',
+    cover: asset('assets/img/projects/graphic-design-ebook.png'),
     pageCount: 40,
     kind: 'xhtml',
     layout: 'paired',
     pageWidth: 768,
     pageHeight: 1024,
-    basePath: '/assets/ebook/cronache-del-segno/OEBPS',
+    basePath: asset('assets/ebook/cronache-del-segno/OEBPS'),
     pagePattern: 'Ruffini_EPUB1-{n}.xhtml',
   },
   {
     id: 'la-casina-guide',
     title: "Wanderer's Guide",
     subtitle: 'La Casina B&B',
-    cover: '/assets/ebook/la-casina-guide/page-1.jpg',
+    cover: asset('assets/ebook/la-casina-guide/page-1.jpg'),
     pageCount: 9,
     kind: 'image',
     layout: 'single',
-    basePath: '/assets/ebook/la-casina-guide',
+    basePath: asset('assets/ebook/la-casina-guide'),
     pagePattern: 'page-{n}.jpg',
   },
 ]

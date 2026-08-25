@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from 'react'
 import { motion, useDragControls } from 'framer-motion'
 import { DesktopBoundsContext, nextZ } from './WindowFrame'
 import type { MusicPlayerState } from '../../hooks/useMusicPlayer'
+import { asset } from '../../lib/asset'
 
 interface MusicPlayerWindowProps {
   player: MusicPlayerState
@@ -81,7 +82,7 @@ function MusicPlayerWindow({ player, onClose, focusTick }: MusicPlayerWindowProp
         >
           <span
             className="mp-play-icon"
-            style={{ ['--icon' as string]: `url(/assets/icons/pixelart/${isPlaying ? 'pause' : 'play'}.svg)` }}
+            style={{ ['--icon' as string]: `url(${asset(`assets/icons/pixelart/${isPlaying ? 'pause' : 'play'}.svg`)})` }}
           />
         </button>
 
@@ -93,7 +94,7 @@ function MusicPlayerWindow({ player, onClose, focusTick }: MusicPlayerWindowProp
           aria-label={isPlaying ? 'Pause' : 'Play'}
         >
           <img
-            src="/assets/img/player/cd-disc.png"
+            src={asset('assets/img/player/cd-disc.png')}
             alt=""
             className={`mp-disc ${isPlaying ? 'mp-disc--spin' : ''}`}
           />
@@ -107,7 +108,7 @@ function MusicPlayerWindow({ player, onClose, focusTick }: MusicPlayerWindowProp
 
           <div className="mp-seek-row">
             <button type="button" className="mp-skip" onClick={prev} onPointerDown={stop} aria-label="Previous track">
-              <span className="mp-skip-icon" style={{ ['--icon' as string]: 'url(/assets/icons/pixelart/chevron-left.svg)' }} />
+              <span className="mp-skip-icon" style={{ ['--icon' as string]: `url(${asset('assets/icons/pixelart/chevron-left.svg')})` }} />
             </button>
             <input
               type="range"
@@ -121,14 +122,14 @@ function MusicPlayerWindow({ player, onClose, focusTick }: MusicPlayerWindowProp
               aria-label="Seek"
             />
             <button type="button" className="mp-skip" onClick={next} onPointerDown={stop} aria-label="Next track">
-              <span className="mp-skip-icon" style={{ ['--icon' as string]: 'url(/assets/icons/pixelart/chevron-right.svg)' }} />
+              <span className="mp-skip-icon" style={{ ['--icon' as string]: `url(${asset('assets/icons/pixelart/chevron-right.svg')})` }} />
             </button>
           </div>
 
           <div className="mp-volume-row">
             <span
               className="mp-volume-icon"
-              style={{ ['--icon' as string]: `url(/assets/icons/pixelart/${volume === 0 ? 'volume-x' : 'volume-2'}.svg)` }}
+              style={{ ['--icon' as string]: `url(${asset(`assets/icons/pixelart/${volume === 0 ? 'volume-x' : 'volume-2'}.svg`)})` }}
             />
             <input
               type="range"

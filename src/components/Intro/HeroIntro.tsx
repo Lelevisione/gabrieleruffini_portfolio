@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react'
+import { asset } from '../../lib/asset'
 
-const HERO_URL = "url('/assets/img/hero.png')"
+const HERO_URL = `url('${asset('assets/img/hero.png')}')`
 
 interface HeroIntroProps {
   onComplete: () => void
